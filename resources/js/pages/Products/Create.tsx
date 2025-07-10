@@ -1,11 +1,13 @@
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem } from '@/types';
-import { Head, Link, useForm } from '@inertiajs/react';
+// Update the import path below if the correct path is different
+import { Alert, AlertDescription, AlertTitle } from '../../components/ui/alert';
+import { Button } from '../../components/ui/button';
+import { Input } from '../../components/ui/input';
+import { Label } from '../../components/ui/label';
+import { Textarea } from '../../components/ui/textarea';
+// Update the import path below if the correct path is different
+import AppLayout from '../../layouts/app-layout';
+import { type BreadcrumbItem } from '../../types';
+import { Head, useForm } from '@inertiajs/react';
 import { CircleAlert } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -68,3 +70,13 @@ export default function Index() {
         </AppLayout>
     );
 }
+// Simple implementation assuming Laravel's Ziggy is not available.
+// In a real app, you might use Ziggy or a similar route helper.
+function route(name: string): string {
+    if (name === 'products.store') {
+        return '/products';
+    }
+    // Add more routes as needed
+    throw new Error(`Route "${name}" not implemented.`);
+}
+

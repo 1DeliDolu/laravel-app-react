@@ -1,7 +1,9 @@
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem } from '@/types';
+import { Alert, AlertDescription, AlertTitle } from '../../components/ui/alert';
+import { Button } from '../../components/ui/button';
+// Update the import path below if your app-layout file is in a different location
+import AppLayout from '../../layouts/app-layout';
+// Update the import path below to the actual location of your types file
+import { type BreadcrumbItem } from '../../types';
 import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import { Megaphone } from 'lucide-react';
 import {
@@ -12,7 +14,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table"
+} from "../../components/ui/table"
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -102,3 +104,16 @@ export default function Index() {
         </AppLayout>
     );
 }
+function route(name: string, id?: number): string {
+    switch (name) {
+        case "products.create":
+            return "/products/create";
+        case "products.edit":
+            return `/products/${id}/edit`;
+        case "products.destroy":
+            return `/products/${id}`;
+        default:
+            return "/";
+    }
+}
+
